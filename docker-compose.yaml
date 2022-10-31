@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+    container_name: english-nginx
+    volumes:
+      - .:/usr/share/nginx/html:ro
+    networks:
+      - test-block
+
+networks:
+  test-block:
+    driver: bridge

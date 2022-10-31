@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>English Tochka</title>
+    <link
+            rel="stylesheet"
+            href="media/css/normalize.css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
+</head>
+<body>
+
+    <style>
+        /* 100 */
+        @font-face {
+            font-family: 'MuseoSansCyrl';
+            src: local('MuseoSansCyrl'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-100.ttf') format('truetype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-100.eot?#iefix') format('embedded-opentype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-100.woff') format('woff');
+            font-weight: 100;
+            font-style: normal;
+        }
+
+        /* 300 */
+        @font-face {
+            font-family: 'MuseoSansCyrl';
+            src: local('MuseoSansCyrl'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-300.ttf') format('truetype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-300.eot?#iefix') format('embedded-opentype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-300.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        /* 500 */
+        @font-face {
+            font-family: 'MuseoSansCyrl';
+            src: local('MuseoSansCyrl'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-500.ttf') format('truetype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-500.eot?#iefix') format('embedded-opentype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-500.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        /* 700 */
+        @font-face {
+            font-family: 'MuseoSansCyrl';
+            src: local('MuseoSansCyrl'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-700.ttf') format('truetype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-700.eot?#iefix') format('embedded-opentype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* 900 */
+        @font-face {
+            font-family: 'MuseoSansCyrl';
+            src: local('MuseoSansCyrl'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-900.ttf') format('truetype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-900.eot?#iefix') format('embedded-opentype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-900.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        /* 100Italic */
+        @font-face {
+            font-family: 'MuseoSansCyrl';
+            src: local('MuseoSansCyrl'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-100Italic.ttf') format('truetype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-100Italic.eot?#iefix') format('embedded-opentype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-100Italic.woff') format('woff');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        /* 300Italic */
+        @font-face {
+            font-family: 'MuseoSansCyrl';
+            src: local('MuseoSansCyrl'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-300Italic.ttf') format('truetype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-300Italic.eot?#iefix') format('embedded-opentype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-300Italic.woff') format('woff');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        /* 500Italic */
+        @font-face {
+            font-family: 'MuseoSansCyrl';
+            src: local('MuseoSansCyrl'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-500Italic.ttf') format('truetype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-500Italic.eot?#iefix') format('embedded-opentype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-500Italic.woff') format('woff');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        /* 700Italic */
+        @font-face {
+            font-family: 'MuseoSansCyrl';
+            src: local('MuseoSansCyrl'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-700Italic.ttf') format('truetype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-700Italic.eot?#iefix') format('embedded-opentype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-700Italic.woff') format('woff');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        /* 900Italic */
+        @font-face {
+            font-family: 'MuseoSansCyrl';
+            src: local('MuseoSansCyrl'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-900Italic.ttf') format('truetype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-900Italic.eot?#iefix') format('embedded-opentype'),
+            url('/media/fonts/MuseoSansCyrl/MuseoSansCyrl-900Italic.woff') format('woff');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+
+        body {
+            background: #F5F5F5;
+            font-family: 'MuseoSansCyrl', sans-serif;
+            font-weight: 300;
+            line-height: 13px;
+            font-size: 18px;
+        }
+        .pay_block {
+            display: grid;
+            gap: 5em;
+            grid-template-columns: minmax(255px, auto) auto;
+            padding-left: 4.4vw;
+            padding-right: 4.4vw;
+            padding-top: 3.6vh;
+            padding-bottom: 5.8vh;
+            align-items: start;
+        }
+        .pay_block > div {
+            background: rgb(106 106 106 / 8%);
+            padding: 1em;
+        }
+        .pay_block > div > h5 {
+            margin: 0px;
+            padding: 0px;
+            font-size: 22px;
+        }
+
+
+        .pay_block > div .header {
+        }
+        .pay_block > div .header h5 {
+            margin: 0px;
+            padding: 0px;
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 22px;
+        }
+
+
+        .pay_block > div.balans_block {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1vw;
+            padding-left: 2.4em;
+            padding-right: 2.4em;
+        }
+        .pay_block > div.balans_block .header h5 {
+            font-weight: 300;
+        }
+
+
+
+        .pay_block > div.chenge_block {
+            padding-left: 1.8em;
+            padding-right: 1.8em;
+        }
+        .pay_block > div.chenge_block .header h5 {
+            margin: 0px;
+            padding: 0px;
+            font-weight: 500;
+        }
+        .pay_block > div.chenge_block > div.header {
+            margin-bottom: 15px;
+            display: grid;
+            grid-template-columns: auto 100px;
+        }
+        .pay_block > div.chenge_block > div.header .link {
+            justify-self: end;
+            box-shadow: none;
+            border: 0px;
+            cursor: pointer;
+            background: none;
+        }
+        .pay_block > div.chenge_block > div.content {
+            display: grid;
+            gap: 1em;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .pay_block > div.chenge_block > div.content > div {
+            text-align: center;
+        }
+        .pay_block > div.chenge_block > div.content > div > .coin_count {
+            display: inline;
+        }
+        .pay_block > div.chenge_block > div.content > div > .title {
+            font-size: 12px;
+            padding-top: 4px;
+            padding-bottom: 8px;
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 3px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #instruction-fancyBox-content {
+            background-color: #EDEEF0;
+        }
+        #instruction-fancyBox-content > .carousel__button.is-close {
+            top: 20px;
+            right: 30px;
+        }
+        #instruction-fancyBox-content > .carousel__button svg {
+            stroke: #9C958F;
+            filter: none;
+        }
+        #instruction-fancyBox-content h2 {
+            font-size: 25px;
+        }
+        #instruction-fancyBox-content p {
+            font-size: 14px;
+            line-height: 18.2px;
+            font-weight: 300;
+        }
+
+
+        .button {
+            padding: 5px 12px;
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: center;
+            border-radius: 5px;
+            display: block;
+        }
+        .button.bold {
+            font-weight: bold;
+        }
+        .button.green {
+            background-color: #00CD52;
+            color: #FFFFFF;
+        }
+        .button.yellow {
+            background-color: #FECE00;
+            color: #242424;
+        }
+
+
+        .coin_count {
+            display: inline;
+            padding-left: 45px;
+            position: relative;
+            font-size: 52px;
+            line-height: 52px;
+            font-weight: 900;
+        }
+        .coin_count:before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            width: 40px;
+            height: 100%;
+            background-image: url(/media/img/coin.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .coin_count span {
+            text-decoration: overline;
+            text-transform: uppercase;
+            font-size: 37px;
+        }
+        .coin_count.small {
+            font-size: 14px;
+            line-height: 14px;
+            padding-left: 16px;
+            font-weight: 700;
+        }
+        .coin_count.small:before {
+            width: 14px;
+        }
+        .coin_count.small span {
+            font-size: 10px;
+        }
+
+
+        .badge {
+            border-radius: 4px;
+            padding: 3px 4px;
+            font-weight: bold;
+        }
+        .badge.rotate_l_12 {
+            transform: rotate(-12.65deg);
+        }
+        .badge.red {
+            background-color: #FF1A1A;
+            color: #FFFFFF;
+        }
+
+        .link {
+            font-size: 9px;
+            text-decoration: underline;
+            color: #242424;
+        }
+
+        @media only screen and (max-width: 1140px) {
+            .pay_block > div.chenge_block > div.content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media only screen and (max-width: 980px) and (min-width: 875px) {
+            .pay_block {
+                gap: 2em;
+            }
+        }
+        @media only screen and (max-width: 980px) {
+            .pay_block > div.chenge_block > div.header {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .pay_block > div.chenge_block .header h5 {
+                grid-row: 2;
+                text-align: center;
+                margin-top: 15px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 875px) {
+            .pay_block {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1em;
+            }
+            .pay_block > div.balans_block {
+                grid-template-columns: repeat(2, 1fr);
+                align-items: center;
+            }
+        }
+
+        @media only screen and (max-width: 560px) {
+            .pay_block > div.balans_block {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        @media only screen and (max-width: 530px) {
+            .pay_block > div.chenge_block > div.content {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+
+    <section class="pay_block">
+        <div class="balans_block">
+            <div class="header">
+                <h5>Ваш баланс:</h5>
+            </div>
+            <div class="content">
+                <div class="coin_count">34<span>et</span></div>
+            </div>
+        </div>
+        <div class="chenge_block">
+            <div class="header">
+                <h5>Варианты обмена на скидку</h5>
+                <button class="link" data-fancybox="dialog" data-src="#instruction-fancyBox-content">Инструкция</button>
+            </div>
+            <div class="content">
+                <div>
+                    <div>
+                        <div class="coin_count small">50<span>et</span></div>
+                    </div>
+                    <img src="/media/img/img_1.png" width="62" />
+                    <div class="title">
+                        <span class="badge red rotate_l_12">50%</span>
+                        на звонки ST (x2)
+                    </div>
+                    <a href="" class="button green bold">Уже использовано</a>
+                </div>
+                <div>
+                    <div>
+                        <div class="coin_count small">70<span>et</span></div>
+                    </div>
+                    <img src="/media/img/img_2.png" width="62" />
+                    <div class="title">
+                        <span class="badge red rotate_l_12">30%</span>
+                        на спецкурс</div>
+                    <a href="" class="button yellow bold">Использовать скидку</a>
+                </div>
+                <div>
+                    <div>
+                        <div class="coin_count small">100<span>et</span></div>
+                    </div>
+                    <img src="/media/img/img_3.png" width="62" />
+                    <div class="title">
+                        <span class="badge red rotate_l_12">50%</span>
+                        на курс</div>
+                    <a href="" class="button yellow bold">Использовать скидку</a>
+                </div>
+                <div>
+                    <div>
+                        <div class="coin_count small">139<span>et</span></div>
+                    </div>
+                    <img src="/media/img/img_3.png" width="62" />
+                    <div class="title">
+                        <span class="badge red rotate_l_12">65%</span>
+                        на курс</div>
+                    <a href="" class="button yellow bold">Использовать скидку</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- FancyBox Contents -->
+        <div id="instruction-fancyBox-content" style="display:none;max-width:500px;">
+            <h2>Инструкция</h2>
+            <p>
+                После публикации сделайте скрин, что вы его написали и отправьте своему куратору, чтобы мы добавили вам спецкурс в личный кабинет.
+            </p>
+            <p>
+                После публикации сделайте скрин, что вы его написали и отправьте своему куратору, чтобы мы добавили вам спецкурс в личный кабинет.
+            </p>
+            <p>
+                После публикации сделайте скрин, что вы его написали и отправьте своему куратору, чтобы мы добавили вам спецкурс в личный кабинет.
+            </p>
+            <p>
+                После публикации сделайте скрин, что вы его написали и отправьте своему куратору, чтобы мы добавили вам спецкурс в личный кабинет.
+            </p>
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" async></script>
+
+</body>
+</html>
