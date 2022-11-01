@@ -8,10 +8,10 @@ class Mysql extends Interfaces {
      * @param string $hostname
      * @param string $username
      * @param string $password
-     * @param $database
-     * @throws Exception
+     * @param string $database
+     * @throws \Exception
      */
-    public function __construct(string $hostname = 'localhost', string $username = '', string $password = '', $database = '')
+    public function __construct(string $hostname = 'localhost', string $username = '', string $password = '', string $database = '')
     {
         $this->config['hostname'] = $hostname;
         $this->config['username'] = $username;
@@ -25,13 +25,13 @@ class Mysql extends Interfaces {
     /**
      * Создает подключчение к БД
      * @return void
-     * @throws Exception
+     * @throws \Exception
      */
     protected function connect(){
         $this->connect = \mysqli_connect("mysql", "app_user", "ak#rDb5dLg", "mburnaevg4_fulls");
 
         if ($this->connect == false){
-            throw new Exception("Ошибка: Невозможно подключиться к MySQL " . \mysqli_connect_error());
+            throw new \Exception("Ошибка: Невозможно подключиться к MySQL " . \mysqli_connect_error());
         }
     }
 
@@ -48,15 +48,15 @@ class Mysql extends Interfaces {
     /**
      * Делает запрос к БД
      * @param string $sql
-     * @return mysqli_result
-     * @throws Exception
+     * @return \mysqli_result
+     * @throws \Exception
      */
     public function query(string $sql): \mysqli_result
     {
         $result = \mysqli_query($this->connect, $sql);
 
         if ($result == false) {
-            throw new  Exception("Произошла ошибка при выполнении запроса" . \mysqli_error($this->connect));
+            throw new  \Exception("Произошла ошибка при выполнении запроса" . \mysqli_error($this->connect));
         }
 
         return $result;
@@ -66,14 +66,14 @@ class Mysql extends Interfaces {
      * Запрос на insert
      * @param string $sql
      * @return string|int
-     * @throws Exception
+     * @throws \Exception
      */
     public function insert(string $sql): bool
     {
         $result = \mysqli_query($this->connect, $sql);
 
         if ($result == false) {
-            throw new  Exception("Произошла ошибка при выполнении запроса" . \mysqli_error($this->connect));
+            throw new  \Exception("Произошла ошибка при выполнении запроса" . \mysqli_error($this->connect));
         }
 
         return true;
@@ -83,7 +83,7 @@ class Mysql extends Interfaces {
      * запрос на select
      * @param string $sql
      * @return array
-     * @throws Exception
+     * @throws \Exception
      */
     public function select(string $sql, array $stmt_params = []): array
     {
