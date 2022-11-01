@@ -85,10 +85,37 @@ class Mysql extends Interfaces {
      * @return array
      * @throws Exception
      */
-    public function select(string $sql): array
+    public function select(string $sql, array $stmt_params = []): array
     {
-        $result = $this->query($sql);
+        $ret = [];
 
-        return \mysqli_fetch_all($result, \MYSQLI_ASSOC);
+        $stmt = $this->connect->prepare($sql);
+
+        if(!empty($stmt_params)) {
+            $stmt->bind_param(
+                array_reduce(
+                    $stmt_params,
+                    function ($carry, $item) {
+                        return $carry . $item['type'];
+                    },
+                    ''
+                ),
+                ...array_map(
+                    function ($v) {
+                        return $v['value'];
+                    },
+                    $stmt_params
+                )
+            );
+        }
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc()) {
+            $ret[] = $row;
+        }
+
+        return $ret;
     }
 }

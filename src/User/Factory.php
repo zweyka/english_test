@@ -46,15 +46,21 @@ LIMIT 1
         try {
             $user_db = $this->db->select(
                 "SELECT
-	`id`,
-	`name`,
-	`login`
-FROM
-	`users`
-WHERE
-	`login` = '{$login}'
-LIMIT 1
-;"
+                        `id`,
+                        `name`,
+                        `login`
+                    FROM
+                        `users`
+                    WHERE
+                        `login` = ?
+                    LIMIT 1
+                    ;",
+                [
+                    [
+                        'type' => 's',
+                        'value' => $login
+                    ]
+                ]
             );
 
             if(!isset($user_db[0])) {
