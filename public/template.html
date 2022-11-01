@@ -153,6 +153,23 @@
             font-size: 22px;
         }
 
+        .change_user {
+            background: rgb(106 106 106 / 8%);
+            padding: 1em;
+            text-align: center;
+        }
+        .change_user form {
+            display: grid;
+            align-items: center;
+            gap: 10px;
+            grid-template-columns: 300px minmax(150px, 250px) minmax(150px, 250px);
+            align-items: center;
+            justify-content: center;
+        }
+        .change_user form label {}
+        .change_user form input {}
+        .change_user form button {}
+
 
         .pay_block > div .header {
         }
@@ -250,6 +267,8 @@
             text-align: center;
             border-radius: 5px;
             display: block;
+            border-style: none;
+            cursor: pointer;
         }
         .button.bold {
             font-weight: bold;
@@ -355,6 +374,12 @@
             }
         }
 
+        @media only screen and (max-width: 650px) {
+            .change_user form {
+                grid-template-columns: auto;
+            }
+        }
+
         @media only screen and (max-width: 560px) {
             .pay_block > div.balans_block {
                 grid-template-columns: repeat(1, 1fr);
@@ -368,82 +393,74 @@
         }
     </style>
 
-    <section class="pay_block">
-        <div class="balans_block">
-            <div class="header">
-                <h5>Ваш баланс:</h5>
-            </div>
-            <div class="content">
-                <div class="coin_count">34<span>et</span></div>
-            </div>
-        </div>
-        <div class="chenge_block">
-            <div class="header">
-                <h5>Варианты обмена на скидку</h5>
-                <button class="link" data-fancybox="dialog" data-src="#instruction-fancyBox-content">Инструкция</button>
-            </div>
-            <div class="content">
-                <div>
-                    <div>
-                        <div class="coin_count small">50<span>et</span></div>
-                    </div>
-                    <img src="/media/img/img_1.png" width="62" />
-                    <div class="title">
-                        <span class="badge red rotate_l_12">50%</span>
-                        на звонки ST (x2)
-                    </div>
-                    <a href="" class="button green bold">Уже использовано</a>
-                </div>
-                <div>
-                    <div>
-                        <div class="coin_count small">70<span>et</span></div>
-                    </div>
-                    <img src="/media/img/img_2.png" width="62" />
-                    <div class="title">
-                        <span class="badge red rotate_l_12">30%</span>
-                        на спецкурс</div>
-                    <a href="" class="button yellow bold">Использовать скидку</a>
-                </div>
-                <div>
-                    <div>
-                        <div class="coin_count small">100<span>et</span></div>
-                    </div>
-                    <img src="/media/img/img_3.png" width="62" />
-                    <div class="title">
-                        <span class="badge red rotate_l_12">50%</span>
-                        на курс</div>
-                    <a href="" class="button yellow bold">Использовать скидку</a>
-                </div>
-                <div>
-                    <div>
-                        <div class="coin_count small">139<span>et</span></div>
-                    </div>
-                    <img src="/media/img/img_3.png" width="62" />
-                    <div class="title">
-                        <span class="badge red rotate_l_12">65%</span>
-                        на курс</div>
-                    <a href="" class="button yellow bold">Использовать скидку</a>
-                </div>
-            </div>
-        </div>
+    <?php if(!is_null($user)):?>
 
-        <!-- FancyBox Contents -->
-        <div id="instruction-fancyBox-content" style="display:none;max-width:500px;">
-            <h2>Инструкция</h2>
-            <p>
-                После публикации сделайте скрин, что вы его написали и отправьте своему куратору, чтобы мы добавили вам спецкурс в личный кабинет.
-            </p>
-            <p>
-                После публикации сделайте скрин, что вы его написали и отправьте своему куратору, чтобы мы добавили вам спецкурс в личный кабинет.
-            </p>
-            <p>
-                После публикации сделайте скрин, что вы его написали и отправьте своему куратору, чтобы мы добавили вам спецкурс в личный кабинет.
-            </p>
-            <p>
-                После публикации сделайте скрин, что вы его написали и отправьте своему куратору, чтобы мы добавили вам спецкурс в личный кабинет.
-            </p>
-        </div>
+        <section class="pay_block">
+            <div class="balans_block">
+                <div class="header">
+                    <h5>Ваш баланс:</h5>
+                </div>
+                <div class="content">
+                    <div class="coin_count"><?=$user->balance()?><span>et</span></div>
+                </div>
+            </div>
+            <div class="chenge_block">
+                <div class="header">
+                    <h5>Варианты обмена на скидку</h5>
+                    <button class="link" data-fancybox="dialog" data-src="#instruction-fancyBox-content">Инструкция</button>
+                </div>
+                <div class="content">
 
+                    <?php foreach($products as $p):?>
+
+                        <div>
+                            <div>
+                                <div class="coin_count small"><?=$p['price']?><span>et</span></div>
+                            </div>
+                            <img src="/media/img/img_1.png" width="62" />
+                            <div class="title">
+                                <span class="badge red rotate_l_12"><?=$p['title_preapre']['percent']?></span>
+                                <?=$p['title_preapre']['title']?>
+                            </div>
+                            <a href="<?=($p['is_buy'] ? '#' : $p['buy_link'])?>" class="button <?=($p['is_buy'] ? 'green' : 'yellow')?> bold"><?=($p['is_buy'] ? 'Уже использовано' : 'Использовать скидку')?></a>
+                        </div>
+
+                    <?php endforeach;?>
+
+                </div>
+            </div>
+
+            <!-- FancyBox Contents -->
+            <div id="instruction-fancyBox-content" style="display:none;max-width:500px;">
+                <h2>Инструкция</h2>
+                <p>
+                    После публикации сделайте скрин, что вы его написали и отправьте своему куратору, чтобы мы добавили вам спецкурс в личный кабинет.
+                </p>
+                <p>
+                    После публикации сделайте скрин, что вы его написали и отправьте своему куратору, чтобы мы добавили вам спецкурс в личный кабинет.
+                </p>
+                <p>
+                    После публикации сделайте скрин, что вы его написали и отправьте своему куратору, чтобы мы добавили вам спецкурс в личный кабинет.
+                </p>
+                <p>
+                    После публикации сделайте скрин, что вы его написали и отправьте своему куратору, чтобы мы добавили вам спецкурс в личный кабинет.
+                </p>
+            </div>
+
+        </section>
+
+    <?php endif;?>
+
+    <section class="change_user">
+        <form method="get" action="/index.php">
+            <label for="user">Логин пользователя:</label>
+            <input type="text" id="user" name="user" value="<?=(!is_null($user)) ? $user->get_login() : '' ?>" />
+            <button class="button green" type="submit">Показать</button>
+        </form>
+
+        <?php if(!empty($error)):?>
+            <div><?=$error?></div>
+        <?php endif;?>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" async></script>
