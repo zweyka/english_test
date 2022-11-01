@@ -15,11 +15,9 @@ services:
       - test-block
 
   php:
-#    image: php:8.1-fpm
     build:
       context: ./docker/php
     image: english-php:1.1
-#    build: ./docker/php
     container_name: english-php
     volumes:
       - .:/var/www/
@@ -35,7 +33,6 @@ services:
       - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
     environment:
-#      MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: sd@h4Dq2K
       MYSQL_DATABASE: mburnaevg4_fulls
       MYSQL_USER: app_user
