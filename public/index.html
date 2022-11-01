@@ -172,6 +172,7 @@
 
 
         .pay_block > div .header {
+            margin-bottom: 18px;
         }
         .pay_block > div .header h5 {
             margin: 0px;
@@ -205,7 +206,7 @@
             font-weight: 500;
         }
         .pay_block > div.chenge_block > div.header {
-            margin-bottom: 15px;
+            margin-bottom: 42px;
             display: grid;
             grid-template-columns: auto 100px;
         }
@@ -219,10 +220,14 @@
         .pay_block > div.chenge_block > div.content {
             display: grid;
             gap: 1em;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, max(150px));
+            justify-content: center;
         }
         .pay_block > div.chenge_block > div.content > div {
             text-align: center;
+        }
+        .pay_block > div.chenge_block > div.content > div > div {
+            margin-bottom: 5px;
         }
         .pay_block > div.chenge_block > div.content > div > .coin_count {
             display: inline;
@@ -296,7 +301,7 @@
             position: absolute;
             left: 0px;
             width: 40px;
-            height: 100%;
+            height: 52px;
             background-image: url(/media/img/coin.png);
             background-position: center;
             background-repeat: no-repeat;
@@ -305,19 +310,22 @@
         .coin_count span {
             text-decoration: overline;
             text-transform: uppercase;
-            font-size: 37px;
+            font-size: 36px;
+            margin-left: 3px;
         }
         .coin_count.small {
-            font-size: 14px;
-            line-height: 14px;
+            font-size: 18px;
+            line-height: 18px;
             padding-left: 16px;
             font-weight: 700;
         }
         .coin_count.small:before {
             width: 14px;
+            height: 14px;
         }
         .coin_count.small span {
-            font-size: 10px;
+            font-size: 15px;
+            margin-left: 1px;
         }
 
 
@@ -342,7 +350,7 @@
 
         @media only screen and (max-width: 1140px) {
             .pay_block > div.chenge_block > div.content {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, max(150px));
             }
         }
 
@@ -388,7 +396,7 @@
 
         @media only screen and (max-width: 530px) {
             .pay_block > div.chenge_block > div.content {
-                grid-template-columns: repeat(1, 1fr);
+                grid-template-columns: repeat(1, max(150px));
             }
         }
     </style>
@@ -412,7 +420,7 @@
                     <div>
                         <div class="coin_count small">50<span>et</span></div>
                     </div>
-                    <img src="/media/img/img_1.png" width="62" />
+                    <img src="/media/img/img_1.png" width="50" />
                     <div class="title">
                         <span class="badge red rotate_l_12">50%</span>
                         на звонки ST (x2)
@@ -423,7 +431,7 @@
                     <div>
                         <div class="coin_count small">70<span>et</span></div>
                     </div>
-                    <img src="/media/img/img_2.png" width="62" />
+                    <img src="/media/img/img_2.png" width="50" />
                     <div class="title">
                         <span class="badge red rotate_l_12">30%</span>
                         на спецкурс</div>
@@ -433,7 +441,7 @@
                     <div>
                         <div class="coin_count small">100<span>et</span></div>
                     </div>
-                    <img src="/media/img/img_3.png" width="62" />
+                    <img src="/media/img/img_3.png" width="50" />
                     <div class="title">
                         <span class="badge red rotate_l_12">50%</span>
                         на курс</div>
@@ -443,7 +451,7 @@
                     <div>
                         <div class="coin_count small">139<span>et</span></div>
                     </div>
-                    <img src="/media/img/img_3.png" width="62" />
+                    <img src="/media/img/img_3.png" width="50" />
                     <div class="title">
                         <span class="badge red rotate_l_12">65%</span>
                         на курс</div>
